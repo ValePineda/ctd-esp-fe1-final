@@ -3,9 +3,7 @@ import TarjetaPersonaje from "./tarjeta-personaje.componente";
 import { FC, useEffect, useState } from "react";
 import Personaje from "../../types/pesonaje.types";
 import { useDispatch } from "react-redux";
-import { useSelector } from "../../redux/store/store";
 import { buscarPersonajesThunk } from "../../redux/actions/personajesActions";
-import { obtenerPersonajes } from "../../services/obtenerPersonajes.services";
 
 /**
  * Grilla de personajes para la pagina de inicio
@@ -25,9 +23,7 @@ const GrillaPersonajes: FC<GrillaPersonajesProps> = ({
 }) => {
   const dispatch = useDispatch();
   useEffect(() => {
-    console.log("grilla", personajes.length == 0);
 
-    console.log(personajes);
     if (personajes.length == 0) {
       dispatch(buscarPersonajesThunk("", paginaActual));
     }

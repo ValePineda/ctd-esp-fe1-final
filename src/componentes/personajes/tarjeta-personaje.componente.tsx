@@ -1,6 +1,4 @@
-import { FC, useState } from "react";
-import { useDispatch } from "react-redux";
-import { toggleFavoritos } from "../../redux/actions/favoritosActions";
+import { FC } from "react";
 import Personaje from "../../types/pesonaje.types";
 import BotonFavorito from "../botones/boton-favorito.componente";
 import "./tarjeta-personaje.css";

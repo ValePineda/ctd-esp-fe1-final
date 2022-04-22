@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { buscarPersonajesThunk } from "../../redux/actions/personajesActions";
 import Filtro from "../../types/filtro.type";
 import { useSelector } from "../../redux/store/store";
-import { obtenerPersonajes } from "../../services/obtenerPersonajes.services";
 
 const Filtros: FC<Filtro> = ({
   paginaActual,
@@ -16,15 +15,10 @@ const Filtros: FC<Filtro> = ({
   const { personajes } = useSelector((state) => state.personajes);
 
   useEffect(() => {
-    console.log("filtro");
-
-    if (nombre !=="" ) {
+    if (nombre !== "") {
       dispatch(buscarPersonajesThunk(nombre, paginaActual));
     }
   }, [paginaActual, nombre]);
-
-  console.log(nombre);
-  
 
   const onChange = async (e: ChangeEvent<HTMLInputElement>) => {
     setNombre(e.target.value);

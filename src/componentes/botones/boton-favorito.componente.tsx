@@ -1,8 +1,6 @@
-import { type } from "os";
 import { FC, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleFavoritos } from "../../redux/actions/favoritosActions";
-import { useSelector } from "../../redux/store/store";
 import Personaje from "../../types/pesonaje.types";
 import "./boton-favorito.css";
 /**
@@ -19,29 +17,23 @@ type BotonFavoritoProps = {
 };
 
 const BotonFavorito: FC<BotonFavoritoProps> = ({ personaje }) => {
-  // console.log(esFavorito, "fav");
   const dispatch = useDispatch();
 
   const [esFavorito, setEsFavorito] = useState<boolean>(personaje.esFavorito);
 
+  /**
+   * Funcion que permite cambiar el estado del atributo favorito de cada personaje
+   */
   const toggleFavorito = () => {
-    console.log(personaje);
-
     setEsFavorito(!personaje.esFavorito ? true : false);
     personaje.esFavorito = esFavorito;
     dispatch(toggleFavoritos(personaje));
   };
- 
-  console.log(personaje.esFavorito);
-  
 
   const src =
     personaje.esFavorito == true
       ? "/imagenes/star-filled.png"
       : "/imagenes/star.png";
-
-
-  console.log(src);
 
   return (
     <div className="boton-favorito" onClick={toggleFavorito}>

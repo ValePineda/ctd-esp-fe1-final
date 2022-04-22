@@ -1,5 +1,4 @@
-import { type } from "os";
-import { FC, useEffect, useState } from "react";
+import { FC, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { buscarPersonajesThunk } from "../../redux/actions/personajesActions";
 import { useSelector } from "../../redux/store/store";
@@ -17,7 +16,7 @@ import "./paginacion.css";
 const Paginacion: FC<Filtro> = ({ paginaActual, setPagina, nombre }) => {
   const dispatch = useDispatch();
 
-  const { info, personajes } = useSelector((state) => state.personajes);
+  const { info } = useSelector((state) => state.personajes);
 
   useEffect(() => {
     if (paginaActual > 1) {

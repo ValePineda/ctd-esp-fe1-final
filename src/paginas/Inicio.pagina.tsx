@@ -26,6 +26,8 @@ const PaginaInicio: FC = () => {
    */
   const limpiar = () => {
     setNombre("")
+    setPagina(1)
+ 
     dispatch(buscarPersonajesThunk("", 1));
 
   };

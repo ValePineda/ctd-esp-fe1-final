@@ -80,8 +80,6 @@ export const buscarPersonajesThunk = (
 
     try {
       const { results, info } = await obtenerPersonajes(nombre, pagina);
-      // results.map((element) => (element.esFavorito = false));
-      // console.log(results, "results");
 
       dispatch(buscarPersonajesSuccess(results, info));
     } catch (error) {
@@ -89,4 +87,3 @@ export const buscarPersonajesThunk = (
     }
   };
 };
-
