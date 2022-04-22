@@ -16,10 +16,12 @@ import "./paginacion.css";
 const Paginacion: FC<Filtro> = ({ paginaActual, setPagina, nombre }) => {
   const dispatch = useDispatch();
 
+  const { personajesFavoritos } = useSelector((state) => state.favoritos);
+
   const { info } = useSelector((state) => state.personajes);
 
   useEffect(() => {
-    if (paginaActual > 1) {
+    if (personajesFavoritos.length == 0) {
       dispatch(buscarPersonajesThunk(nombre, paginaActual));
     }
   }, [paginaActual, nombre]);

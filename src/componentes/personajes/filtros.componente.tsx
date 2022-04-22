@@ -12,10 +12,10 @@ const Filtros: FC<Filtro> = ({
   setNombre,
 }) => {
   const dispatch = useDispatch();
-  const { personajes } = useSelector((state) => state.personajes);
+  const { personajesFavoritos } = useSelector((state) => state.favoritos);
 
   useEffect(() => {
-    if (nombre !== "") {
+    if (personajesFavoritos.length == 0) {
       dispatch(buscarPersonajesThunk(nombre, paginaActual));
     }
   }, [paginaActual, nombre]);
