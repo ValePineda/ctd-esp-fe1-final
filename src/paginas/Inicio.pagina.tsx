@@ -25,11 +25,10 @@ const PaginaInicio: FC = () => {
    * Funcion que permite limpiar los parametros de busqueda (pagina y nombre)
    */
   const limpiar = () => {
-    setNombre("")
-    setPagina(1)
- 
-    dispatch(buscarPersonajesThunk("", 1));
+    setNombre("");
+    setPagina(1);
 
+    dispatch(buscarPersonajesThunk("", 1));
   };
 
   return (

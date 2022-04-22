@@ -4,6 +4,7 @@ import { FC, useEffect, useState } from "react";
 import Personaje from "../../types/pesonaje.types";
 import { useDispatch } from "react-redux";
 import { buscarPersonajesThunk } from "../../redux/actions/personajesActions";
+import { useSelector } from "../../redux/store/store";
 
 /**
  * Grilla de personajes para la pagina de inicio
@@ -22,9 +23,12 @@ const GrillaPersonajes: FC<GrillaPersonajesProps> = ({
   estado,
 }) => {
   const dispatch = useDispatch();
+
+  const { personajesFavoritos } = useSelector((state) => state.favoritos);
+
   useEffect(() => {
 
-    if (personajes.length == 0) {
+    if (personajes.length == 0 || personajesFavoritos.length == 0) {
       dispatch(buscarPersonajesThunk("", paginaActual));
     }
   }, []);
