@@ -27,7 +27,6 @@ const GrillaPersonajes: FC<GrillaPersonajesProps> = ({
   const { personajesFavoritos } = useSelector((state) => state.favoritos);
 
   useEffect(() => {
-
     if (personajes.length == 0 || personajesFavoritos.length == 0) {
       dispatch(buscarPersonajesThunk("", paginaActual));
     }

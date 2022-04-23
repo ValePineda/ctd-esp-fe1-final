@@ -21,7 +21,7 @@ const Paginacion: FC<Filtro> = ({ paginaActual, setPagina, nombre }) => {
   const { info } = useSelector((state) => state.personajes);
 
   useEffect(() => {
-    if (personajesFavoritos.length == 0) {
+    if (personajesFavoritos.length == 0 || paginaActual > 1) {
       dispatch(buscarPersonajesThunk(nombre, paginaActual));
     }
   }, [paginaActual, nombre]);
